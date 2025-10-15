@@ -2,6 +2,18 @@
 
 
 GET {{baseUrl}}
-###
-
+### Auth Login
+# @name authLogin
 POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "a@a.com",
+    "password": "1",
+    "teste": "teste"
+}
+
+### Read One user
+# @name authLogin
+GET {{baseUrl}}/user/123
+Content-Type: application/json
