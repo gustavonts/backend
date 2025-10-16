@@ -20,8 +20,6 @@ export class UserService {
             }
         })
 
-        console.log(exists)
-
         if (exists) {
             throw new ConflictException('E-mail já existe')
         }
@@ -35,8 +33,18 @@ export class UserService {
 
         const created = await this.userRepository.save(newUser)
         
-        console.log(created)
-
         return created
+    }
+
+    findByEmail(email: string) {
+        return this.userRepository.findOneBy({email}) 
+    }
+
+    findById(id: string) {
+        return this.userRepository.findOneBy({id}) 
+    }
+
+    save(user: User) {
+        return this.userRepository.save(user)
     }
 }
